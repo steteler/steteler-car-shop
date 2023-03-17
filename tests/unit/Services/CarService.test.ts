@@ -13,8 +13,8 @@ import ErrorHandler from '../../../src/Utils/Error.utils';
 
 const CAR_NOT_FOUND = 'Car not found';
 
-describe('Testando CarsService', function () {
-  it('Deveria criar um carro com sucesso', async function () {
+describe('Verifica CarsService', function () {
+  it('Criar um carro com sucesso', async function () {
     sinon.stub(Model, 'create').resolves(carOutput);
 
     const service = new CarsService();
@@ -23,7 +23,7 @@ describe('Testando CarsService', function () {
     expect(result).to.be.deep.equal(carOutput);
   });
 
-  it('Deveria buscar todos os carros com sucesso', async function () {
+  it('Buscar todos os carros com sucesso', async function () {
     sinon.stub(Model, 'find').resolves(mockedCars);
 
     const service = new CarsService();
@@ -32,7 +32,7 @@ describe('Testando CarsService', function () {
     expect(result).to.be.deep.equal(mockedCars);
   });
 
-  it('Deveria buscar um carro por id com sucesso', async function () {
+  it('Buscar um carro por id com sucesso', async function () {
     sinon.stub(Model, 'findOne').resolves(carOutput);
 
     const service = new CarsService();
@@ -41,7 +41,7 @@ describe('Testando CarsService', function () {
     expect(result).to.be.deep.equal(carOutput);
   });
 
-  it('Deveria lançar um erro ao buscar um carro inexistente', async function () {
+  it('Lança um erro ao buscar um carro inexistente', async function () {
     sinon.stub(Model, 'findOne').resolves(false);
 
     try {
@@ -52,7 +52,7 @@ describe('Testando CarsService', function () {
     }
   });
 
-  it('Deveria atualizar um carro por id com sucesso', async function () {
+  it('Atualiza um carro por id com sucesso', async function () {
     sinon.stub(Model, 'findByIdAndUpdate').resolves(carOutput);
 
     const service = new CarsService();
@@ -61,7 +61,7 @@ describe('Testando CarsService', function () {
     expect(result).to.be.deep.equal(carOutput);
   });
 
-  it('Deveria lançar um erro ao atualizar um carro inexistente', async function () {
+  it('Lança um erro ao atualizar um carro inexistente', async function () {
     sinon.stub(Model, 'findByIdAndUpdate').resolves(false);
 
     try {
@@ -72,7 +72,7 @@ describe('Testando CarsService', function () {
     }
   });
 
-  it('Deveria deletar um carro por id com sucesso', async function () {
+  it('Deleta um carro por id com sucesso', async function () {
     sinon.stub(Model, 'findByIdAndRemove').resolves(carOutput);
 
     const service = new CarsService();
@@ -81,7 +81,7 @@ describe('Testando CarsService', function () {
     expect(result).to.be.equal(undefined);
   });
 
-  it('Deveria lançar um erro ao deletar um carro inexistente', async function () {
+  it('Lançar um erro ao deletar um carro inexistente', async function () {
     sinon.stub(Model, 'findByIdAndRemove').resolves(false);
 
     try {
@@ -95,6 +95,4 @@ describe('Testando CarsService', function () {
   afterEach(function () {
     sinon.restore();
   });
-
-  // it('', function () {});
 });

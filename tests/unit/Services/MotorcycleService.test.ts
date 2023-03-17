@@ -95,6 +95,4 @@ describe('Testando MotorcyclesService', function () {
   afterEach(function () {
     sinon.restore();
   });
-
-  // it('', function () {});
 });
